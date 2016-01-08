@@ -18,14 +18,13 @@ RUN \
     xvfb \ 
     wget \
     curl \
-    git 
+    git \
+    libmysqlclient-dev \
+    libpg-dev \
+    mailutils \
+    fetchmail
 
-## Install mail apps
-RUN \
-  apt-get update && \
-  apt-get install -y libmysqlclient-dev mailutils fetchmail
-
-## Install Ruby and its pre-req
+## Install Ruby v217
 RUN \
   apt-get update && \
   apt-get install -y git-core curl zlib1g-dev build-essential libssl-dev libreadline-dev libyaml-dev libsqlite3-dev sqlite3 libxml2-dev libxslt1-dev libcurl4-openssl-dev python-software-properties libffi-dev && \
@@ -41,7 +40,7 @@ RUN \
 
 ## Install Gems
 RUN \
-  sudo gem install --no-rdoc --no-ri watir headless rspec zip rest-client mysql2 && \
+  sudo gem install --no-rdoc --no-ri watir headless rspec zip rest-client mysql2 pg && \
   sudo gem uninstall -I watir-webdriver && \
   sudo gem install --no-rdoc --no-ri watir-webdriver --version '0.9.1' && \
   sudo gem uninstall -I selenium-webdriver && \
