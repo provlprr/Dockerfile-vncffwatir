@@ -42,14 +42,14 @@ RUN \
 RUN \
   sudo gem install --no-rdoc --no-ri watir headless rspec zip rest-client mysql2 pg && \
   sudo gem uninstall -I watir-webdriver && \
-  sudo gem install --no-rdoc --no-ri watir-webdriver --version '0.9.1' && \
+  sudo gem install --no-rdoc --no-ri watir-webdriver --version '0.8.0' && \
   sudo gem uninstall -I selenium-webdriver && \
-  sudo gem install --no-rdoc --no-ri selenium-webdriver --version '2.48.1' 
+  sudo gem install --no-rdoc --no-ri selenium-webdriver --version '2.46.2' 
 
 ## Install firefox ESR 
 RUN \
   cd /tmp && \
-  wget -O ff.tar.bz2 https://ftp.mozilla.org/pub/firefox/releases/38.1.0esr/linux-x86_64/en-US/firefox-38.1.0esr.tar.bz2 && \
+  wget -O ff.tar.bz2 https://ftp.mozilla.org/pub/firefox/releases/31.8.0esr/linux-x86_64/en-US/firefox-31.8.0esr.tar.bz2 && \
   tar -xvjf ff.tar.bz2 -C /opt && \
   ln -s /opt/firefox/firefox /usr/bin/firefox && \
   rm -rf /tmp/ff.tar.bz2
