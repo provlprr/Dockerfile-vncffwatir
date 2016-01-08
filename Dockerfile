@@ -20,7 +20,7 @@ RUN \
     curl \
     git \
     libmysqlclient-dev \
-    libpg-dev \
+    libpq-dev \
     mailutils \
     fetchmail
 
