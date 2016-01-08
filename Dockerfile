@@ -40,11 +40,12 @@ RUN \
 
 ## Install Gems
 RUN \
-  sudo gem install --no-rdoc --no-ri watir headless rspec zip rest-client mysql2 pg && \
-  sudo gem uninstall -I watir-webdriver && \
-  sudo gem install --no-rdoc --no-ri watir-webdriver --version '0.8.0' && \
-  sudo gem uninstall -I selenium-webdriver && \
-  sudo gem install --no-rdoc --no-ri selenium-webdriver --version '2.46.2' 
+  apt-get update && apt-get install -y libpq-dev && \
+  gem install --no-rdoc --no-ri watir headless rspec zip rest-client mysql2 pg && \
+  gem uninstall -I watir-webdriver && \
+  gem install --no-rdoc --no-ri watir-webdriver --version '0.8.0' && \
+  gem uninstall -I selenium-webdriver && \
+  gem install --no-rdoc --no-ri selenium-webdriver --version '2.46.2' 
 
 ## Install firefox ESR 
 RUN \
