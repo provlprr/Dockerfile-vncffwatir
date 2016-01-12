@@ -55,6 +55,10 @@ RUN \
   ln -s /opt/firefox/firefox /usr/bin/firefox && \
   rm -rf /tmp/ff.tar.bz2
 
+## Provide a custom default user profile with user_pref to disable automatic update
+RUN mkdir -p /root/.mozilla/firefox/
+COPY /custom/ff_profiles/* /root/.mozilla/firefox/
+
 WORKDIR /media/shared
 
 #CMD vncserver :1 -name vnc -geometry 1280x800 && tail -F ~/.vnc/*.log
